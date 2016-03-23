@@ -494,7 +494,7 @@
 <div class="content-section-b hide_area" id="purchase_list_div">
 	<div class="container">
 		<h1 class="text-center">进货列表</h1>
-		<table class="table table-bordered table-hover ">
+		<table  class="table table-bordered table-hover ">
 	      <thead>
 	        <tr>
 	          <th>序号</th>
@@ -512,7 +512,7 @@
 	          <td>100.00</td>
 	          <td>国贸三店</td>
 	        </tr>
-	        <tr>
+	        <tr >
 	          <th scope="row">2</th>
 	          <td>2016年3月21日</td>
 	          <td>4</td>
@@ -928,6 +928,78 @@
 		</a>
     </div>
 </footer> -->
+
+<!-- 查看销售或进货详细信息的弹出窗 -->
+<div id="moreInfo_sale_parse_modal" class="modal fade bs-example-modal-lg" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #fff;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">具体时间</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+        <table id="moreInfo_table" class="table table-hover">
+ 			<thead>
+ 				<tr>
+		          <th>商品种类</th>
+		          <th>样式</th>
+		          <th>数量</th>
+		          <th>地点</th>
+		          <th>用途</th>
+		        </tr>
+ 			</thead>
+ 			<tbody>
+ 				<tr class="success">
+ 					<td >餐具</td>
+		            <td >52头牡丹</td>
+		            <td >3套</td>
+		            <td >湖南</td>
+		            <td >个人使用</td>
+ 				</tr>
+ 				<tr class="info">
+ 					<td >餐具</td>
+		            <td >52头牡丹</td>
+		            <td >3套</td>
+		            <td >湖南</td>
+		            <td >个人使用</td>
+ 				</tr>
+ 				<tr class="success">
+ 					<td >餐具</td>
+		            <td >52头牡丹</td>
+		            <td >3套</td>
+		            <td >湖南</td>
+		            <td >个人使用</td>
+ 				</tr>
+ 				<tr class="info">
+ 					<td >餐具</td>
+		            <td >52头牡丹</td>
+		            <td >3套</td>
+		            <td >湖南</td>
+		            <td >个人使用</td>
+ 				</tr>
+ 				<tr class="success">
+ 					<td >餐具</td>
+		            <td >52头牡丹</td>
+		            <td >3套</td>
+		            <td >湖南</td>
+		            <td >个人使用</td>
+ 				</tr>
+ 				
+ 			</tbody>
+		</table>
+          
+          
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <!-- js files -->
  <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -976,6 +1048,10 @@ $(document).ready(function(){
   loadGoodsStyle() ;
   
   clickInFun() ;
+  //表格点击事件
+  tableClick("sale_list_div") ;
+  tableClick("purchase_list_div") ;
+  showRemarks() ;
   
 })
 </script>
@@ -1112,6 +1188,23 @@ function clickInFun(){
 			$("#purchase_list_div").toggle(1800,function(){  });
 		}
 	}) ;
+}
+
+function tableClick(id){
+	$("#"+id).find("tbody").find("tr").click(function(){
+		$("#moreInfo_sale_parse_modal").modal("show") ;
+	});
+}
+
+function showRemarks(){
+	$("#moreInfo_table").find("tr").click(function(){
+		alert(1) ;
+		$(this).find("button").click() ;
+	}) ;
+}
+
+function getremarks(){
+	
 }
 
 </script>
